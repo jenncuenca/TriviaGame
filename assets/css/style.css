@@ -1,0 +1,33 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+ body {
+    font-family: 'Lato', 'Open Sans', sans-serif;
+    background-image: url("../imgs/hogwarts-castle.jpg");
+    background-position: center center;
+    background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+    
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer */
+    height: 60px;
+    background-color: #341c50;
+    text-align: center;
+    margin-top: 5%;
+    color: #eabafa;
+  }
