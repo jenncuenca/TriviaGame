@@ -1,3 +1,12 @@
+$(document).ready(function() {
+
+var questions= [];
+var answers= [];
+
+var rightAnswers= 0;
+var wrongAnsers= 0;
+var unanswered= 0;
+
 //game variables
 
 //game questions
@@ -10,3 +19,8 @@
 
 //timer
 
+}
+
+
+//replace html/css for each question
+  
