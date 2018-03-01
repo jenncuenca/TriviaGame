@@ -17,22 +17,41 @@
     
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=IM+Fell+English|Lato" rel="stylesheet" rel="stylesheet">
-    
-
 </head>
 
 <body>
+    <header></header>
 
 <div class="container">
-    <div class="col-sm-12" id="questions"></div>
+    <!-- START -->
+    <button class='btn btn-primary' id='startBtn'>Start</button>
+   
+    <!-- QUESTION -->
+    <div id=timer></div>
+    <div id=currentQuestion></div>
+    <div class='question'></div>
+    <div class='answerChoices'></div>
+
+    <!-- ANSWER RESULTS -->
+    <div id=message></div>
+    <div id=correctAnswer></div>
+    <div id=gif></div>
+
+    <!-- SCORE -->
+    <div id=finalMessage></div>
+    <div id=rightAnswers></div>
+    <div id=wrongAnswers></div>
+    <div id=notAnswers></div>
+    <div id='restartBtn'></div>
+
+
 </div>
 
 <!-- FOOTER -->
 <footer class="footer">
     <div class="container">
         <h5>Copyright &copy; Jennifer Cuenca 2018</h5>
-        <p>Harry Potter Publishing rights © J.K. Rowling</p>
-        <p>Harry Potter characters, names and related indicia and trademarks of and © Warner Bros. Entertainment Inc. All Rights Reserved.</p>
+        <p>Harry Potter Publishing rights © J.K. Rowling | Harry Potter characters, names and related indicia and trademarks of and © Warner Bros. Entertainment Inc. All Rights Reserved.</p>
     </div>
 </footer>
 
@@ -40,6 +59,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
+
+<!--game code -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 <!-- Scripts from Bootstrap: Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

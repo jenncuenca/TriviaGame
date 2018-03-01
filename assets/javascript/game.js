@@ -8,7 +8,7 @@ var rightAnswers= 0;
 var wrongAnswers= 0;
 var unanswered= 0;
 
-
+// Initial Start Screen with Start Button
 
 //first question is chosen
     // question options presented to player
@@ -23,14 +23,8 @@ var unanswered= 0;
 
     //question timed 
 
-
 //win-lose conditions
 
 //game reset
 
-
-}
-
-
-//replace html/css for each question
-  
+});
