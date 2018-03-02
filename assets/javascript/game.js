@@ -43,8 +43,8 @@ var resultMessages = {
 
 var currentQuestion; // Holds current question
 var userChoice;// Holds user's choice
-var correctAnswers;
-var wrongAnswers;
+var correctAnswer;
+var wrongAnswer;
 var answered;
 var unanswered;
 var seconds;
@@ -90,7 +90,7 @@ function newQuestion(){
 		choices.text(examQuestions[currentQuestion].answerOptions[i]);
 		choices.attr({'data-index': i });
 		choices.addClass('thisChoice');
-		$('.answerList').append(choices);
+		$('.answerChoices').append(choices);
     }
     
     timer();
@@ -160,8 +160,8 @@ function scores(){
 	$('#gif').empty();
 
 	$('#finalMessage').html(resultMessages.finished);
-	$('#rightAnswers').html("Answers Corect: " + correctAnswers);
-	$('#incorrectAnswers').html("Answers Incorrect: " + wrongAnswers);
+	$('#rightAnswers').html("Answers Corect: " + correctAnswer);
+	$('#incorrectAnswers').html("Answers Incorrect: " + wrongAnswer);
 	$('#notanswered').html("Not Answered: " + unanswered);
 	$('#restartBtn').addClass('reset');
 	$('#restartBtn').show();
