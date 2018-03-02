@@ -5,6 +5,7 @@ html {
 
  body {
     font-family: 'Lato', 'Open Sans', sans-serif;
+    font-size: 25px;
     background-image: url("../imgs/OWLS_1996.jpg");
     background-position: center center;
     background-repeat:  no-repeat;
@@ -19,6 +20,34 @@ html {
 a {
     text-decoration: none;
 }
+.btn-primary,.reset{
+	background-color: #313477;
+	color: white;
+	font-family: 'Sigmar One', sans-serif;
+	font-size: 30px;
+	padding: 20px;
+	margin-top: 100px;
+}
+.btn-primary:hover, .reset:hover{
+	background-color: #202364;
+}
+
+.container{
+	margin-top: 50px;
+	text-align: center;
+	height: 100%;
+	width: 700px;
+}
+
+.thisChoice:hover{
+	background-color: #202364;
+	color: white;
+	padding: 10px;
+}
+
+#gif{
+	margin: 30px;
+}
 
 .footer {
     position: absolute;
@@ -31,3 +60,4 @@ a {
     margin-top: 5%;
     color: #eabafa;
   }
+

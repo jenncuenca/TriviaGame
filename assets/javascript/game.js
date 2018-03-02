@@ -165,7 +165,7 @@ function scores(){
 	$('#notanswered').html("Not Answered: " + unanswered);
 	$('#restartBtn').addClass('reset');
 	$('#restartBtn').show();
-	$('#restartBtn').html('Retry?');
+    $('#restartBtn').html('Retry?');
 }
 
 });
