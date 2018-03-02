@@ -135,7 +135,7 @@ function resultsPage(){
 		correctAnswer++;
 		$('#message').html(messages.correct);
 	} else if((userChoice != rightAnswerIndex) && (answered == true)){
-		incorrectAnswer++;
+		wrongAnswer++;
 		$('#message').html(messages.incorrect);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 	} else{
@@ -160,8 +160,8 @@ function scores(){
 	$('#gif').empty();
 
 	$('#finalMessage').html(messages.finished);
-	$('#rightAnswers').html("Answers Corect: " + correctAnswer);
-	$('#incorrectAnswers').html("Answers Incorrect: " + incorrectAnswer);
+	$('#rightAnswers').html("Answers Corect: " + correctAnswers);
+	$('#incorrectAnswers').html("Answers Incorrect: " + wrongAnswers);
 	$('#notanswered').html("Not Answered: " + unanswered);
 	$('#restartBtn').addClass('reset');
 	$('#restartBtn').show();
