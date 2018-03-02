@@ -69,8 +69,8 @@ function newGame(){
 	$('#wrongAnswers').empty();
 	$('#notAnswered').empty();
 	currentQuestion = 0;
-	correctAnswers = 0;
-	wrongAnswers = 0;
+	correctAnswer = 0;
+	wrongAnswer = 0;
 	unanswered = 0;
 	newQuestion();
 }
@@ -159,9 +159,9 @@ function scores(){
 	$('#correctAnswer').empty();
 	$('#gif').empty();
 
-	$('#finalMessage').html(resultMessages.finished);
+	$('#finalMessage').html(resultMessages.done);
 	$('#rightAnswers').html("Answers Corect: " + correctAnswer);
-	$('#incorrectAnswers').html("Answers Incorrect: " + wrongAnswer);
+	$('#wrongAnswers').html("Answers Incorrect: " + wrongAnswer);
 	$('#notanswered').html("Not Answered: " + unanswered);
 	$('#restartBtn').addClass('reset');
 	$('#restartBtn').show();
