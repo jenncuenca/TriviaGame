@@ -43,10 +43,10 @@ var resultMessages = {
 
 var currentQuestion; // Holds current question
 var answered;
+var unanswered;
 var userChoice;// Holds user's choice
 var correctAnswers;
 var wrongAnswers;
-var unanswered;
 var seconds;
 var time;
 
@@ -62,7 +62,7 @@ $('#startOverBtn').on('click', function(){
 	newGame();
 });
 
-//New Game is Generated
+//Everything is cleared for new game to start
 function newGame(){
 	$('#finalMessage').empty();
 	$('#rightAnswers').empty();
@@ -87,7 +87,7 @@ function newQuestion(){
 	$('.question').html('<h2>' + examQuestions[currentQuestion].question + '</h2>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div>');
-		choices.text(examQuestions[currentQuestion].answerList[i]);
+		choices.text(examQuestions[currentQuestion].answerOptions[i]);
 		choices.attr({'data-index': i });
 		choices.addClass('thisChoice');
 		$('.answerList').append(choices);
@@ -96,7 +96,7 @@ function newQuestion(){
 	timer();
 	//clicking an answer will pause the time and setup answerPage
 	$('.thisChoice').on('click',function(){
-		userSelect = $(this).data('index');
+		userChoice = $(this).data('index');
 		clearInterval(time);
 		resultsPage();
 	});
@@ -128,7 +128,7 @@ function resultsPage(){
 	$('.question').empty();
 
 	var rightAnswerText = examQuestions[currentQuestion].answerList[examQuestions[currentQuestion].answer];
-	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
+	var rightAnswerIndex = examQuestions[currentQuestion].answer;
 	$('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
 	//checks to see correct, incorrect, or unanswered
 	if((userChoice == rightAnswerIndex) && (answered == true)){
