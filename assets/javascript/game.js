@@ -32,7 +32,7 @@ var examQuestions= [{
         }
     ]; // end of questions array
 
-var gifs=[];
+var gifs=['wingardiumleviosa','accio','nox','obliviate','expectopatronum','expelliarmus','sectumsempra'];
 
 var resultMessages = {
     right: "OUTSTANDING! You're correct",
@@ -104,7 +104,7 @@ function newQuestion(){
 
 //TIMER
 function timer(){
-	seconds = 15;
+	seconds = 10;
 	$('#timer').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	answered = true;
 	//countdown
@@ -129,18 +129,18 @@ function resultsPage(){
 
 	var rightAnswerText = examQuestions[currentQuestion].answerOptions[examQuestions[currentQuestion].answer];
 	var rightAnswerIndex = examQuestions[currentQuestion].answer;
-	//$('#gif').html('<img src = "assets/images/'+ gifs[currentQuestion] +'.gif" width = "400px">');
+	$('#gif').html('<img src = "assets/imgs/gifs/'+ gifs[currentQuestion] +'.gif">');
 	//checks to see correct, incorrect, or unanswered
 	if((userChoice == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
-		$('#message').html(resultMessages.correct);
+		$('#message').html(resultMessages.right);
 	} else if((userChoice != rightAnswerIndex) && (answered == true)){
 		wrongAnswer++;
-		$('#message').html(resultMessages.incorrect);
+		$('#message').html(resultMessages.wrong);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 	} else{
 		unanswered++;
-		$('#message').html(resultMessages.endTime);
+		$('#message').html(resultMessages.timeOut);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 		answered = true;
 	}
@@ -160,7 +160,7 @@ function scores(){
 	$('#gif').empty();
 
 	$('#finalMessage').html(resultMessages.done);
-	$('#rightAnswers').html("Answers Corect: " + correctAnswer);
+	$('#rightAnswers').html("Answers Correct: " + correctAnswer);
 	$('#wrongAnswers').html("Answers Incorrect: " + wrongAnswer);
 	$('#notanswered').html("Not Answered: " + unanswered);
 	$('#restartBtn').addClass('reset');
