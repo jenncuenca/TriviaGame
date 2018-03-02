@@ -42,11 +42,11 @@ var resultMessages = {
 }
 
 var currentQuestion; // Holds current question
-var answered;
-var unanswered;
 var userChoice;// Holds user's choice
 var correctAnswers;
 var wrongAnswers;
+var answered;
+var unanswered;
 var seconds;
 var time;
 
@@ -57,7 +57,7 @@ $('#startBtn').on('click', function(){
 });
 
 // Reset Button
-$('#startOverBtn').on('click', function(){
+$('#restartBtn').on('click', function(){
 	$(this).hide();
 	newGame();
 });
@@ -93,7 +93,7 @@ function newQuestion(){
 		$('.answerList').append(choices);
     }
     
-	timer();
+    timer();
 	//clicking an answer will pause the time and setup answerPage
 	$('.thisChoice').on('click',function(){
 		userChoice = $(this).data('index');
@@ -111,7 +111,7 @@ function timer(){
 	time = setInterval(showTimer, 1000);
 }
 
-function displayTimer(){
+function showTimer(){
 	seconds--;
 	$('#timer').html('<h3>Time Remaining: ' + seconds + '</h3>');
 	if(seconds < 1){
@@ -127,20 +127,20 @@ function resultsPage(){
 	$('.thisChoice').empty(); //Clears question page
 	$('.question').empty();
 
-	var rightAnswerText = examQuestions[currentQuestion].answerList[examQuestions[currentQuestion].answer];
+	var rightAnswerText = examQuestions[currentQuestion].answerOptions[examQuestions[currentQuestion].answer];
 	var rightAnswerIndex = examQuestions[currentQuestion].answer;
-	$('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
+	//$('#gif').html('<img src = "assets/images/'+ gifs[currentQuestion] +'.gif" width = "400px">');
 	//checks to see correct, incorrect, or unanswered
 	if((userChoice == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
-		$('#message').html(messages.correct);
+		$('#message').html(resultMessages.correct);
 	} else if((userChoice != rightAnswerIndex) && (answered == true)){
 		wrongAnswer++;
-		$('#message').html(messages.incorrect);
+		$('#message').html(resultMessages.incorrect);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 	} else{
 		unanswered++;
-		$('#message').html(messages.endTime);
+		$('#message').html(resultMessages.endTime);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
 		answered = true;
 	}
@@ -159,7 +159,7 @@ function scores(){
 	$('#correctAnswer').empty();
 	$('#gif').empty();
 
-	$('#finalMessage').html(messages.finished);
+	$('#finalMessage').html(resultMessages.finished);
 	$('#rightAnswers').html("Answers Corect: " + correctAnswers);
 	$('#incorrectAnswers').html("Answers Incorrect: " + wrongAnswers);
 	$('#notanswered').html("Not Answered: " + unanswered);
