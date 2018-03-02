@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 //game variables
-var spells= [{
+var examQuestions= [{
         question:"What spell is used to levitate objects?",
         answerOptions: ["Alohomora","Wingardium Leviosa", "Levicorpus", "Protego"],
         answer: 1
@@ -44,31 +44,11 @@ var resultMessages = {
 var currentQuestion; // Holds current question
 var answered;
 var userChoice;// Holds user's choice
-var rightAnswers= 0;
-var wrongAnswers= 0;
-var unanswered= 0;
-
-//Timer + Variables
+var correctAnswers;
+var wrongAnswers;
+var unanswered;
 var seconds;
 var time;
-
-function timer(){
-	seconds = 15;
-	$('#timer').html('<h3>Time Remaining: ' + seconds + '</h3>');
-	answered = true;
-	//countdown
-	time = setInterval(showTimer, 1000);
-}
-
-function displayTimer(){
-	seconds--;
-	$('#timer').html('<h3>Time Remaining: ' + seconds + '</h3>');
-	if(seconds < 1){
-		clearInterval(time);
-		answered = false;
-		resultsPage(); //switch to answer page
-	}
-}
 
 // Start Button
 $('#startBtn').on('click', function(){
@@ -89,36 +69,56 @@ function newGame(){
 	$('#wrongAnswers').empty();
 	$('#notAnswered').empty();
 	currentQuestion = 0;
-	rightAnswer = 0;
-	wrongAnswer = 0;
+	correctAnswers = 0;
+	wrongAnswers = 0;
 	unanswered = 0;
 	newQuestion();
 }
 
-//Question Setup
-function hpQuestion(){
+//Question is generated
+function newQuestion(){
 	$('#message').empty();
-	$('#correctedAnswer').empty();
+	$('#correctAnswer').empty();
 	$('#gif').empty();
 	answered = true;
 	
-	//sets up questions with answerList
-	$('#currentQuestion').html('Question '+(hpQuestion+1)+'/'+spells.length);
-	$('.question').html('<h2>' + spells[hpQuestion].question + '</h2>');
+	//sets up new questions & answerList
+	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+examQuestions.length);
+	$('.question').html('<h2>' + examQuestions[currentQuestion].question + '</h2>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div>');
-		choices.text(spells[hpQuestion].answerList[i]);
+		choices.text(examQuestions[currentQuestion].answerList[i]);
 		choices.attr({'data-index': i });
 		choices.addClass('thisChoice');
 		$('.answerList').append(choices);
-	}
+    }
+    
 	timer();
 	//clicking an answer will pause the time and setup answerPage
 	$('.thisChoice').on('click',function(){
-		userChoice = $(this).data('index');
+		userSelect = $(this).data('index');
 		clearInterval(time);
 		resultsPage();
 	});
+}
+
+//TIMER
+function timer(){
+	seconds = 15;
+	$('#timer').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	answered = true;
+	//countdown
+	time = setInterval(showTimer, 1000);
+}
+
+function displayTimer(){
+	seconds--;
+	$('#timer').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	if(seconds < 1){
+		clearInterval(time);
+		answered = false;
+		resultsPage(); //switch to answer page
+	}
 }
 
 //Quiz Results
@@ -127,14 +127,14 @@ function resultsPage(){
 	$('.thisChoice').empty(); //Clears question page
 	$('.question').empty();
 
-	var rightAnswerText = spells[currentQuestion].answerList[hpQuestions[currentQuestion].answer];
-	var rightAnswerIndex = spells[currentQuestion].answer;
+	var rightAnswerText = examQuestions[currentQuestion].answerList[examQuestions[currentQuestion].answer];
+	var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
 	$('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
 	//checks to see correct, incorrect, or unanswered
-	if((userSelect == rightAnswerIndex) && (answered == true)){
+	if((userChoice == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
 		$('#message').html(messages.correct);
-	} else if((userSelect != rightAnswerIndex) && (answered == true)){
+	} else if((userChoice != rightAnswerIndex) && (answered == true)){
 		incorrectAnswer++;
 		$('#message').html(messages.incorrect);
 		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
@@ -145,8 +145,8 @@ function resultsPage(){
 		answered = true;
 	}
 	
-	if(currentQuestion == (spells.length-1)){
-		setTimeout(scoreboard, 5000)
+	if(currentQuestion == (examQuestions.length-1)){
+		setTimeout(scores, 5000)
 	} else{
 		currentQuestion++;
 		setTimeout(newQuestion, 5000);
