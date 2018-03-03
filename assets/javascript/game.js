@@ -2,44 +2,44 @@ $(document).ready(function() {
 
 //QUESTIONS
 var examQuestions= [{
-        question:"What spell is used to levitate objects?",
+        question:"Identify the charm used to levitate an object.",
         answerOptions: ["Alohomora","Wingardium Leviosa", "Levicorpus", "Protego"],
         answer: 1,
         gif:"assets/imgs/gifs/wingardiumleviosa.gif",
     },{
-        question:"What spell would you use to summon an object to you?",
+        question:"Name the spell that summons an object to it's caster?",
         answerOptions: ["Alohomora","Levicorpus","Accio","Crucio"],
         answer: 2,
         gif:"assets/imgs/gifs/accio.gif",
     },{
-        question:"What is the counterspell for Lumos?",
+        question:"Lumos creates a small light at the end of your want. Identify the counterspell used to extinguish it.",
         answerOptions:["Noir","Delumos","Evanesco","Nox"],
         answer: 3,
         gif:"assets/imgs/gifs/nox.gif",
         },{
-        question:"What spell could be used to erase memories from an individual's mind?",
+        question:"A muggle has witnessed you doing Magic! What spell could be used to modify and/or erase their memory?",
         answerOptions: ["Obliviate", "Aguamenti", "Accio", "Levicorpus"],
         answer: 0,
         gif:"assets/imgs/gifs/obliviate.gif",
     },{
-        question:"What spell would you use to protect yourself against Dementors?",
+        question:"What spell would you use to protect yourself against an attack from a Dementor?",
         answerOptions:["Incendio","Protego","Expecto Patronum","Evanesco"],
         answer: 1,
         gif:"assets/imgs/gifs/expectopatronum.gif",
     },{
-        question:"What spell can be used to disarm an attacker?",
+        question:"When dueling, which spell can be used knock your opponent's wand from their grasp?",
         answerOptions:["Protego","Expulso","Expelliarmus","Imperio"],
         answer: 2,
         gif:"assets/imgs/gifs/expelliarmus.gif",
         },{
-        question:"What spell is not one of the 3 Unforgivavle Curses?",
+        question:"Which of these is NOT one of the 3 Unforgivavle Curses?",
         answerOptions: ["Imperio","Avada Kedavra", "Sectumsempra","Crucio"],
         answer: 2,
         gif:"assets/imgs/gifs/sectumsempra.gif",
         }
     ]; // end of questions
 
-
+    
 var resultMessages = {
     right: "OUTSTANDING! You're correct",
 	wrong: "WRONG!",

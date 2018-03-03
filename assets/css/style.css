@@ -24,9 +24,12 @@ a {
     text-decoration: none;
 }
 
-h3 {
+h2, h3 {
     font-family: 'IM Fell English', serif;
-    font-size: 20px;
+}
+
+h2 {
+    color: #73221b;
 }
 
 .btn-primary,.reset{
