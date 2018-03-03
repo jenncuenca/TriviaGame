@@ -5,7 +5,7 @@ html {
 
  body {
     font-family: 'Lato', 'Open Sans', sans-serif;
-    font-size: 14px;
+    /*font-size: 14px;*/
     background-image: url("../imgs/OWLS_1996.jpg");
     background-position: center center;
     background-repeat:  no-repeat;
@@ -14,7 +14,6 @@ html {
     
     /* Margin bottom by footer height
     margin-bottom: 60px;*/
-    color: #fff;
 }
 
 #main {
@@ -31,7 +30,7 @@ h3 {
 }
 
 .btn-primary,.reset{
-	background-color: #313477;
+	background-color: #73221b;
 	color: white;
 	font-family: 'IM Fell English', serif;
 	font-size: 20px;
@@ -40,7 +39,7 @@ h3 {
 }
 
 .btn-primary:hover, .reset:hover{
-	background-color: #202364;
+	background-color: #862a22;
 }
 
 .container{
@@ -58,7 +57,7 @@ img {
 }
 
 .thisChoice:hover{
-	background-color: #202364;
+	background-color: #73221b;
 	color: white;
 	padding: 10px;
 }
