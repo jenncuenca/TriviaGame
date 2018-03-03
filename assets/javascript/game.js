@@ -1,38 +1,44 @@
 $(document).ready(function() {
 
-//game variables
+//QUESTIONS
 var examQuestions= [{
         question:"What spell is used to levitate objects?",
         answerOptions: ["Alohomora","Wingardium Leviosa", "Levicorpus", "Protego"],
-        answer: 1
+        answer: 1,
+        gif:"assets/imgs/gifs/wingardiumleviosa.gif",
     },{
         question:"What spell would you use to summon an object to you?",
         answerOptions: ["Alohomora","Levicorpus","Accio","Crucio"],
-        answer: 2
+        answer: 2,
+        gif:"assets/imgs/gifs/accio.gif",
     },{
         question:"What is the counterspell for Lumos?",
         answerOptions:["Noir","Delumos","Evanesco","Nox"],
-        answer: 3
+        answer: 3,
+        gif:"assets/imgs/gifs/nox.gif",
         },{
         question:"What spell could be used to erase memories from an individual's mind?",
         answerOptions: ["Obliviate", "Aguamenti", "Accio", "Levicorpus"],
-        answer: 0
+        answer: 0,
+        gif:"assets/imgs/gifs/obliviate.gif",
     },{
         question:"What spell would you use to protect yourself against Dementors?",
         answerOptions:["Incendio","Protego","Expecto Patronum","Evanesco"],
-        answer: 1
+        answer: 1,
+        gif:"assets/imgs/gifs/expectopatronum.gif",
     },{
         question:"What spell can be used to disarm an attacker?",
         answerOptions:["Protego","Expulso","Expelliarmus","Imperio"],
-        answer: 2
+        answer: 2,
+        gif:"assets/imgs/gifs/expelliarmus.gif",
         },{
         question:"What spell is not one of the 3 Unforgivavle Curses?",
         answerOptions: ["Imperio","Avada Kedavra", "Sectumsempra","Crucio"],
-        answer: 2
+        answer: 2,
+        gif:"assets/imgs/gifs/sectumsempra.gif",
         }
-    ]; // end of questions array
+    ]; // end of questions
 
-var gifs=['wingardiumleviosa','accio','nox','obliviate','expectopatronum','expelliarmus','sectumsempra'];
 
 var resultMessages = {
     right: "OUTSTANDING! You're correct",
@@ -84,13 +90,13 @@ function newQuestion(){
 	
 	//sets up new questions & answerList
 	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+examQuestions.length);
-	$('.question').html('<h2>' + examQuestions[currentQuestion].question + '</h2>');
+	$('#question').html('<h2>' + examQuestions[currentQuestion].question + '</h2>');
 	for(var i = 0; i < 4; i++){
 		var choices = $('<div>');
 		choices.text(examQuestions[currentQuestion].answerOptions[i]);
 		choices.attr({'data-index': i });
 		choices.addClass('thisChoice');
-		$('.answerChoices').append(choices);
+		$('#answerChoices').append(choices);
     }
     
     timer();
@@ -125,11 +131,11 @@ function showTimer(){
 function resultsPage(){
 	$('#currentQuestion').empty();
 	$('.thisChoice').empty(); //Clears question page
-	$('.question').empty();
+	$('#question').empty();
 
 	var rightAnswerText = examQuestions[currentQuestion].answerOptions[examQuestions[currentQuestion].answer];
 	var rightAnswerIndex = examQuestions[currentQuestion].answer;
-	$('#gif').html('<img src = "assets/imgs/gifs/'+ gifs[currentQuestion] +'.gif">');
+	$('#gif').html('<img src="' + examQuestions[currentQuestion].gif + '"/>');
 	//checks to see correct, incorrect, or unanswered
 	if((userChoice == rightAnswerIndex) && (answered == true)){
 		correctAnswer++;
@@ -141,7 +147,7 @@ function resultsPage(){
 	} else{
 		unanswered++;
 		$('#message').html(resultMessages.timeOut);
-		$('#correctedAnswer').html('The correct answer was: ' + rightAnswerText);
+		$('#correctAnswer').html('The correct answer was: ' + rightAnswerText);
 		answered = true;
 	}
 	
