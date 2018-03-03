@@ -42,9 +42,9 @@ var examQuestions= [{
     
 var resultMessages = {
     right: "OUTSTANDING! You're correct",
-	wrong: "WRONG!",
+	wrong: "DREADFUL!You're incorrect",
 	timeOut: "Times Up!",
-	done: "See Your Score"
+	done: "Ordinary Wizarding Level Results"
 }
 
 var currentQuestion; // Holds current question
